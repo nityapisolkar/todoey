@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To-Do App</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">  
+    <link rel="stylesheet" href="style.css">
+</head>
+
+  
+<body>
+    <div class="container">
+        <h2>To-Do App</h2>
+        <div class="input-container">
+            <input type="text" id="taskInput" placeholder="Enter a task...">
+            <button onclick="addTask()">Add</button> <!-- Modified button text -->
+        </div>
+        <ul id="taskList"></ul>
+
+        <h2>Completed Items</h2>
+        <ul id="completedItems"></ul>
+    </div>
+
+    <script>
+        // Function to add a task
+        function addTask() {
+            var taskInput = document.getElementById("taskInput");
+            var taskText = taskInput.value.trim();
+
+            if (taskText !== "") {
+                var taskList = document.getElementById("taskList");
+                var newTaskItem = document.createElement("li");
+                newTaskItem.classList.add("task-item");
+
+                var completeButton = document.createElement("span");
+                  completeButton.textContent = " ";
+                  completeButton.classList.add("complete-btn");
+                  completeButton.onclick = function() {
+                    moveTaskToCompleted(newTaskItem);
+                };
+
+                newTaskItem.appendChild(completeButton);
+
+                var taskTextSpan = document.createElement("span");
+                taskTextSpan.textContent = taskText;
+                newTaskItem.appendChild(taskTextSpan);
+
+                taskList.appendChild(newTaskItem);
+
+                taskInput.value = "";
+            }
+        }
+
+        // Function to move task to completed items
+        function moveTaskToCompleted(taskItem) {
+            var completedItems = document.getElementById("completedItems");
+            var completedTask = taskItem.cloneNode(true);
+              completedTask.classList.add("completed-item");
+
+            // Remove complete button from the completed task
+            var completeBtn = completedTask.querySelector(".complete-btn");
+              completeBtn.parentNode.removeChild(completeBtn);
+
+            // Add completed task to the completed items list
+              completedItems.appendChild(completedTask);
+
+            // Remove task from the task list
+            taskItem.parentNode.removeChild(taskItem);
+        }
+    </script>
+</body>
+</html>
