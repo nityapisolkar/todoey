@@ -16,7 +16,7 @@
         <h2>To-Do App</h2>
         <div class="input-container">
             <input type="text" id="taskInput" placeholder="Enter a task...">
-            <button onclick="addTask()">Add</button> <!-- Modified button text -->
+            <button onclick="addTask()">Add</button> 
         </div>
         <ul id="taskList"></ul>
 
@@ -24,52 +24,6 @@
         <ul id="completedItems"></ul>
     </div>
 
-    <script>
-        // Function to add a task
-        function addTask() {
-            var taskInput = document.getElementById("taskInput");
-            var taskText = taskInput.value.trim();
-
-            if (taskText !== "") {
-                var taskList = document.getElementById("taskList");
-                var newTaskItem = document.createElement("li");
-                newTaskItem.classList.add("task-item");
-
-                var completeButton = document.createElement("span");
-                  completeButton.textContent = " ";
-                  completeButton.classList.add("complete-btn");
-                  completeButton.onclick = function() {
-                    moveTaskToCompleted(newTaskItem);
-                };
-
-                newTaskItem.appendChild(completeButton);
-
-                var taskTextSpan = document.createElement("span");
-                taskTextSpan.textContent = taskText;
-                newTaskItem.appendChild(taskTextSpan);
-
-                taskList.appendChild(newTaskItem);
-
-                taskInput.value = "";
-            }
-        }
-
-        // Function to move task to completed items
-        function moveTaskToCompleted(taskItem) {
-            var completedItems = document.getElementById("completedItems");
-            var completedTask = taskItem.cloneNode(true);
-              completedTask.classList.add("completed-item");
-
-            // Remove complete button from the completed task
-            var completeBtn = completedTask.querySelector(".complete-btn");
-              completeBtn.parentNode.removeChild(completeBtn);
-
-            // Add completed task to the completed items list
-              completedItems.appendChild(completedTask);
-
-            // Remove task from the task list
-            taskItem.parentNode.removeChild(taskItem);
-        }
-    </script>
+<script src="script.js"></script>
 </body>
 </html>
