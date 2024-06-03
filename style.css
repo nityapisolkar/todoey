@@ -51,7 +51,7 @@ button:hover {
     display: flex;
     align-items: center;
 }
-.task-item:hover .complete-btn {
+.complete-btn:hover {
     background-color: #ccc;
 }
 .task-item .complete-btn {
