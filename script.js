@@ -37,3 +37,8 @@ function moveTaskToCompleted(taskItem) {
     //removing the task from the original todo list
     taskItem.parentNode.removeChild(taskItem);
 }
+
+//new function that will move a completed task back to the to-do list
+//step 1: remove the task item (and the complete button) from the completed list
+//step 2: add the task item back to the to-do list 
+  //but don't keep the styling for "completed items," change the styling back
