@@ -33,9 +33,9 @@ function moveTaskToCompleted(taskItem) {
     var completedTask = taskItem.cloneNode(true);
       completedTask.classList.add("completed-item");
 
-    // Remove complete button from the completed task
-    var completeBtn = completedTask.querySelector(".complete-btn");
-      completeBtn.parentNode.removeChild(completeBtn);
+    // // Remove complete button from the completed task
+    // var completeBtn = completedTask.querySelector(".complete-btn");
+    //   completeBtn.parentNode.removeChild(completeBtn);
 
     // Add completed task to the completed items list
       completedItems.appendChild(completedTask);
