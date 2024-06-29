@@ -9,4 +9,5 @@ Link: https://todoey-app.vercel.app/
 
 * More features, such as editing task names, deleting tasks, and marking tasks as important coming soon!
 
-![image](https://github.com/nityapisolkar/todoey/assets/75457173/9db78840-07af-4e7c-ac11-42d711167c0a)
+![image](https://github.com/nityapisolkar/todoey/assets/75457173/3c0934b9-579a-47d3-8323-a77dbc91c3e9)
+
