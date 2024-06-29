@@ -58,11 +58,31 @@ function addTask() {
             moveTask(newTaskItem);
         };
 
-        newTaskItem.appendChild(completeButton);
-
         var taskTextSpan = document.createElement("span");
         taskTextSpan.textContent = taskText;
+        taskTextSpan.classList.add("task-text");
+
+        var iconsDiv = document.createElement("div");
+        iconsDiv.classList.add("icons");
+
+        var pencilIcon = document.createElement("i");
+        pencilIcon.classList.add("fa-solid", "fa-pencil");
+        pencilIcon.onclick = function() {
+            //logic for edit (gonna add this later)
+        };
+
+        var trashIcon = document.createElement("i");
+        trashIcon.classList.add("fa-solid", "fa-trash");
+        trashIcon.onclick = function() {
+            //logic for delete (gonna add this later)
+        };
+
+        iconsDiv.appendChild(pencilIcon);
+        iconsDiv.appendChild(trashIcon);
+
+        newTaskItem.appendChild(completeButton);
         newTaskItem.appendChild(taskTextSpan);
+        newTaskItem.appendChild(iconsDiv);
 
         taskList.appendChild(newTaskItem);
 
