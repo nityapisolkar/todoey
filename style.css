@@ -27,7 +27,7 @@ body {
     margin-bottom: 10px;
 }
 input[type="text"] {
-    width: calc(100% - 70px); /* Adjusted width */
+    width: calc(100% - 70px);
     padding: 10px;
     border: 1px solid #ccc;
     border-radius: 5px 0 0 5px;
@@ -50,10 +50,41 @@ button:hover {
     list-style-type: none;
     display: flex;
     align-items: center;
+    justify-content: space-between; 
 }
+
+.task-item .task-text {
+    flex-grow: 1;
+    text-align: left;
+}
+
+.task-item .icons {
+    display: flex;
+    gap: 20px; 
+    visibility: hidden; 
+    color: #969696;
+    animation: fadeInAnimation ease 1.5s;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+}
+
+@keyframes fadeInAnimation {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+.task-item:hover .icons {
+    visibility: visible; 
+}
+
 .complete-btn:hover {
     background-color: #ccc;
 }
+
 .task-item .complete-btn {
     border: 1px solid #ccc;
     border-radius: 50%;
@@ -69,4 +100,8 @@ button:hover {
 .completed-item {
     color: #777;
     text-decoration: line-through;
+}
+
+.icons i {
+    cursor: pointer;
 }
