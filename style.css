@@ -63,7 +63,7 @@ button:hover {
     gap: 20px; 
     visibility: hidden; 
     color: #969696;
-    animation: fadeInAnimation ease 1.5s;
+    animation: fadeInAnimation ease 5s;
     animation-iteration-count: 1;
     animation-fill-mode: forwards;
 }
