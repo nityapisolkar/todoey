@@ -92,7 +92,7 @@ button:hover {
 }
 
 .task-item .complete-btn {
-    border: 1px solid #ccc;
+    border: 2px solid #ccc;
     border-radius: 50%;
     width: 20px;
     height: 20px;
