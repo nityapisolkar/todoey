@@ -28,7 +28,7 @@ function addTask() {
         var pencilIcon = document.createElement("i");
         pencilIcon.classList.add("fa-solid", "fa-pencil");
         pencilIcon.onclick = function() {
-            //logic for edit (gonna add this later)
+            // logic for edit (gonna add this later)
         };
 
         var trashIcon = document.createElement("i");
@@ -71,6 +71,11 @@ function moveTaskToCompleted(taskItem) {
         moveTask(completedTask);
     };
 
+    var trashIcon = completedTask.querySelector(".fa-trash");
+    trashIcon.onclick = function() {
+        deleteTask(completedTask);
+    };
+
     completedItems.appendChild(completedTask);
     taskItem.parentNode.removeChild(taskItem);
 }
@@ -83,6 +88,11 @@ function moveTaskBackToTodo(taskItem) {
     var completeButton = todoTask.querySelector(".complete-btn");
     completeButton.onclick = function() {
         moveTask(todoTask);
+    };
+
+    var trashIcon = todoTask.querySelector(".fa-trash");
+    trashIcon.onclick = function() {
+        deleteTask(todoTask);
     };
 
     taskList.appendChild(todoTask);
