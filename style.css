@@ -105,6 +105,9 @@ button:hover {
 }
 .completed-item {
     color: #777;
+}
+
+.completed-item .task-text {
     text-decoration: line-through;
 }
 
