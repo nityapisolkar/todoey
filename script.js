@@ -28,9 +28,9 @@ function addTask() {
         var pencilIcon = document.createElement("i");
         pencilIcon.classList.add("fa-solid", "fa-pencil");
         pencilIcon.onclick = function() {
-            // logic for edit (gonna add this later)
-        };
-
+            editTask(newTaskItem);
+        }; 
+        
         var trashIcon = document.createElement("i");
         trashIcon.classList.add("fa-solid", "fa-trash");
         trashIcon.onclick = function() {
@@ -71,6 +71,11 @@ function moveTaskToCompleted(taskItem) {
         moveTask(completedTask);
     };
 
+    var pencilIcon = completedTask.querySelector(".fa-pencil");
+    pencilIcon.onclick = function() {
+        editTask(completedTask);
+    }; 
+
     var trashIcon = completedTask.querySelector(".fa-trash");
     trashIcon.onclick = function() {
         deleteTask(completedTask);
@@ -90,6 +95,11 @@ function moveTaskBackToTodo(taskItem) {
         moveTask(todoTask);
     };
 
+    var pencilIcon = todoTask.querySelector(".fa-pencil");
+    pencilIcon.onclick = function() {
+        editTask(todoTask);
+    };
+
     var trashIcon = todoTask.querySelector(".fa-trash");
     trashIcon.onclick = function() {
         deleteTask(todoTask);
@@ -101,4 +111,59 @@ function moveTaskBackToTodo(taskItem) {
 
 function deleteTask(taskItem) {
     taskItem.parentNode.removeChild(taskItem);
+}
+
+function editTask(taskItem) {
+    //get the current task text
+    var taskTextSpan = taskItem.querySelector(".task-text");
+    var currentText = taskTextSpan.textContent;
+
+    //create an input field with the current task text
+    var inputField = document.createElement("input");
+    inputField.type = "text";
+    inputField.value = currentText;
+    inputField.classList.add("task-edit-input");
+
+    //replace the task text with the input field
+    taskItem.replaceChild(inputField, taskTextSpan);
+
+    //hide the pencil and trash icons, and add a checkmark icon
+    var iconsDiv = taskItem.querySelector(".icons");
+    var pencilIcon = iconsDiv.querySelector(".fa-pencil");
+    var trashIcon = iconsDiv.querySelector(".fa-trash");
+    pencilIcon.style.display = "none";
+    trashIcon.style.display = "none";
+
+    var checkIcon = document.createElement("i");
+    checkIcon.classList.add("fa-solid", "fa-check");
+    checkIcon.onclick = function() {
+        saveTask(taskItem, inputField);
+    };
+
+    iconsDiv.appendChild(checkIcon);
+}
+
+function saveTask(taskItem, inputField) {
+    //get the new task text from the input field
+    var newText = inputField.value.trim();
+
+    if (newText !== "") {
+        //create a new span element with the new task text
+        var taskTextSpan = document.createElement("span");
+        taskTextSpan.textContent = newText;
+        taskTextSpan.classList.add("task-text");
+
+        //replace the input field with the new task text
+        taskItem.replaceChild(taskTextSpan, inputField);
+
+        //show the pencil and trash icons, but remove the checkmark icon
+        var iconsDiv = taskItem.querySelector(".icons");
+        var pencilIcon = iconsDiv.querySelector(".fa-pencil");
+        var trashIcon = iconsDiv.querySelector(".fa-trash");
+        var checkIcon = iconsDiv.querySelector(".fa-check");
+        pencilIcon.style.display = "";
+        trashIcon.style.display = "";
+
+        iconsDiv.removeChild(checkIcon);
+    }
 }
