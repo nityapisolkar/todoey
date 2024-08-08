@@ -92,7 +92,7 @@ button:hover {
 }
 
 .task-item .complete-btn {
-    border: 2px solid #ccc;
+    border: 2px solid #ccc; 
     border-radius: 50%;
     width: 20px;
     height: 20px;
@@ -113,4 +113,11 @@ button:hover {
 
 .icons i {
     cursor: pointer;
+}
+
+.task-edit-input {
+    border: 1px solid #ccc !important;
+    border-radius: 5px !important; 
+    padding: 5px;
+    box-sizing: border-box;
 }
