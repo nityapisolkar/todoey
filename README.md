@@ -10,6 +10,6 @@ Link: https://todoey-app.vercel.app/
 * To delete a specific task, hover over that task and click the trash icon.
   
 
-![image](https://github.com/user-attachments/assets/08e05da9-5d47-4d5b-bba4-b26317c2beee)
+<img width="989" alt="image" src="https://github.com/user-attachments/assets/f0affc6c-e93c-400c-a54b-b057f45d57c9">
 
 
